@@ -1,38 +1,52 @@
 # Autism-Prediction-Model
-Autism Spectrum Disorder (ASD) Prediction
-This project focuses on building a machine learning model that predicts the likelihood of Autism Spectrum Disorder (ASD) based on input features extracted from a publicly available dataset. The project evaluates the performance of three supervised learning models — Decision Tree, Random Forest, and XGBoost Classifier — to determine which algorithm provides the most accurate predictions.
+Overview
+This project aims to develop a machine learning-based system that predicts the likelihood of Autism Spectrum Disorder (ASD) in individuals based on behavioral and demographic input features. The final solution integrates data analysis, model training, a REST API using FastAPI, and a user-friendly interface built with Streamlit. The model is also containerized using Docker for easy deployment.
 
 Dataset
-The dataset contains a mixture of behavioral, demographic, and screening features.
-It includes responses to ten behavioral questions (AQ-10), age, gender, family history, ethnicity, and other relevant features.
-The target variable is a binary class: whether or not the individual is likely to have ASD.
+The dataset contains a combination of behavioral scores (AQ-10), demographic details (age, gender, ethnicity), and clinical factors (family history, jaundice, prior app usage, etc.).
+
+The target variable indicates whether the individual is likely to have ASD or not (binary classification).
 
 Tools and Libraries
-The following Python libraries were used throughout the project:
-Pandas – for data loading and manipulation
-NumPy – for numerical operations
-Seaborn & Matplotlib – for data visualization and exploration
-Scikit-learn – for preprocessing, modeling, evaluation
-XGBoost – for advanced gradient boosting model implementation
+Pandas – data manipulation and cleaning
 
- Project Workflow
- 
+NumPy – numerical operations
+
+Matplotlib & Seaborn – data visualization and pattern analysis
+
+Scikit-learn – model training, preprocessing, and evaluation
+
+XGBoost – gradient boosting model implementation
+
+FastAPI – for creating the backend API
+
+Streamlit – for designing an interactive web UI
+
+Docker – for containerizing the FastAPI application
+
+Project Workflow
 1. Data Preprocessing
-Handled missing values, categorical encoding, and irrelevant columns.
+Loaded and cleaned the dataset using Pandas
 
-Applied Label Encoding and One-Hot Encoding where necessary.
+Handled missing values and encoded categorical variables
 
-Performed feature scaling (if needed) to normalize the data.
+Applied label encoding and one-hot encoding where needed
+
+Scaled features as appropriate for model input
 
 2. Exploratory Data Analysis (EDA)
-Used Seaborn and Matplotlib to visualize feature distributions and correlations.
+Used Seaborn and Matplotlib to explore and visualize:
 
-Plotted class imbalance, age distribution, and response patterns.
+Feature correlations
 
-Identified key features contributing to ASD prediction.
+Distribution of age and ASD likelihood
 
-3. Modeling
-Three different classification models were trained and evaluated:
+Response patterns to screening questions
+
+Class imbalance
+
+3. Model Training
+Trained and evaluated the following classification algorithms:
 
 Decision Tree Classifier
 
@@ -40,16 +54,26 @@ Random Forest Classifier
 
 XGBoost Classifier
 
-Each model was trained using a train-test split, and evaluated using:
+Each model was evaluated using:
 
-Accuracy
-Classification Report
-Confusion Matrix
+Accuracy score
+
+Confusion matrix
+
+Classification report (precision, recall, F1-score)
 
 4. Hyperparameter Tuning
-Used RandomizedSearchCV to tune model parameters.
-Selected the best combination of hyperparameters for each model.
+Applied RandomizedSearchCV to optimize model parameters
 
-5. Evaluation
-Compared performance of all three models on the same test set.
-XGBoost Classifier performed best in terms of precision and overall accuracy.
+Identified best-performing configuration for each model
+
+5. Model Deployment
+Saved the trained model using pickle
+
+Developed a FastAPI backend to serve predictions via an API endpoint
+
+Built a Streamlit web application to collect user input and display predictions interactively
+
+Dockerized the FastAPI backend for scalable and portable deployment
+
+
